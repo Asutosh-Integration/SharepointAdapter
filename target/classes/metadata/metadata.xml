@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ComponentMetadata ComponentId="ctype::Adapter/cname::Sharepoint/vendor::Asutosh/version::1.0.0" ComponentName="Sharepoint" UIElementType="Adapter" IsExtension="false" IsFinal="true" IsPreserves="true" IsDefaultGenerator="true" ComponentDisplayName="Sharepoint" xmlns:gen="http://www.sap.hci.adk.com/gen" xmlns:bp="http://www.adk.gen/xmlns/blueprint">
+    <Variant VariantName="Sample Component Sender" VariantId="ctype::AdapterVariant/cname::Sharepoint/vendor::Asutosh/tp::sap-sample/mp::sap-sample/direction::Sender" MetadataVersion="2.0" gen:RuntimeComponentBaseUri="sap-sample" AttachmentBehavior="Preserve">
+        <InputContent Cardinality="1" Scope="outsidepool" MessageCardinality="1" isStreaming="false">
+            <Content>
+                <ContentType>Any</ContentType>
+                <Schema xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></Schema>
+            </Content>
+        </InputContent>
+        <OutputContent Cardinality="1" Scope="outsidepool" MessageCardinality="1" isStreaming="false">
+            <Content>
+                <ContentType>Any</ContentType>
+                <Schema xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></Schema>
+            </Content>
+        </OutputContent>
+        <Tab id="connection">
+            <GuiLabels guid="b4c970da-a1f8-443c-b063-046773f93135">
+                <Label language="EN">Connection</Label>
+                <Label language="DE">Connection</Label>
+            </GuiLabels>
+            <AttributeGroup id="defaultUriParameter">
+                <Name xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">URI Setting</Name>
+                <GuiLabels guid="041a3129-aedb-4e5b-a351-dc8d82ae7fbc">
+                    <Label language="EN">URI Setting</Label>
+                    <Label language="DE">URI Setting</Label>
+                </GuiLabels>
+                <AttributeReference>
+                    <ReferenceName>firstUriPart</ReferenceName>
+                    <description>Configure First URI Part</description>
+                </AttributeReference>
+            </AttributeGroup>
+            <AttributeGroup id="Message">
+                <Name xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Test19 Endpoint</Name>
+                <GuiLabels guid="eaa0dc7f-e350-44ae-85bf-6a7a46853302">
+                    <Label language="EN">Message Details</Label>
+                    <Label language="DE">Message Details</Label>
+                </GuiLabels>
+                <AttributeReference>
+                    <ReferenceName>greetingsMessage</ReferenceName>
+                    <description>Configure Greetings Message</description>
+                </AttributeReference>
+            </AttributeGroup>
+            <AttributeGroup id="ScheduledPollConsumer">
+                <Name xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Scheduled Poll Consumer</Name>
+                <GuiLabels guid="813cbd00-ea82-47a9-8302-bf16aa6727b9">
+                    <Label language="EN">Scheduled Poll Consumer</Label>
+                    <Label language="DE">Scheduled Poll Consumer</Label>
+                </GuiLabels>
+                <AttributeReference>
+                    <ReferenceName>backoffMultiplier</ReferenceName>
+                    <description>Configure Backoff Multiplier</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>sendEmptyMessageWhenIdle</ReferenceName>
+                    <description>Configure Send Empty Message When Idle</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>initialDelay</ReferenceName>
+                    <description>Configure Initial Delay</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>backoffIdleThreshold</ReferenceName>
+                    <description>Configure Backoff Idle Threshold</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>useFixedDelay</ReferenceName>
+                    <description>Configure Use Fixed Delay</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>delay</ReferenceName>
+                    <description>Configure Delay</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>startScheduler</ReferenceName>
+                    <description>Configure Start Scheduler</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>runLoggingLevel</ReferenceName>
+                    <description>Configure Run Logging Level</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>backoffErrorThreshold</ReferenceName>
+                    <description>Configure Backoff Error Threshold</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>greedy</ReferenceName>
+                    <description>Configure Greedy</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>timeUnit</ReferenceName>
+                    <description>Configure Time Unit</description>
+                </AttributeReference>
+            </AttributeGroup>
+        </Tab>
+    </Variant>
+    <Variant VariantName="Sample Component Receiver" VariantId="ctype::AdapterVariant/cname::Sharepoint/vendor::Asutosh/tp::sap-sample/mp::sap-sample/direction::Receiver" IsRequestResponse="true" MetadataVersion="2.0" gen:RuntimeComponentBaseUri="sap-sample" AttachmentBehavior="Preserve">
+        <InputContent Cardinality="1" Scope="outsidepool" MessageCardinality="1" isStreaming="false">
+            <Content>
+                <ContentType>Any</ContentType>
+                <Schema xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></Schema>
+            </Content>
+        </InputContent>
+        <OutputContent Cardinality="1" Scope="outsidepool" MessageCardinality="1" isStreaming="false">
+            <Content>
+                <ContentType>Any</ContentType>
+                <Schema xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></Schema>
+            </Content>
+        </OutputContent>
+        <Tab id="connection">
+            <GuiLabels guid="484b8319-7d64-49f9-bef9-d47a419b6446">
+                <Label language="EN">Connection</Label>
+                <Label language="DE">Connection</Label>
+            </GuiLabels>
+            <AttributeGroup id="defaultUriParameter">
+                <Name xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">URI Setting</Name>
+                <GuiLabels guid="55e2764d-9161-43a1-ad8d-28f198d3fdf1">
+                    <Label language="EN">URI Setting</Label>
+                    <Label language="DE">URI Setting</Label>
+                </GuiLabels>
+                <AttributeReference>
+                    <ReferenceName>firstUriPart</ReferenceName>
+                    <description>Configure First URI Part</description>
+                </AttributeReference>
+            </AttributeGroup>
+            <AttributeGroup id="MessageDetails">
+                <Name xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Test19 Endpoint</Name>
+                <GuiLabels guid="d5f0f7b0-5463-4eae-af69-e7d13dabbc18">
+                    <Label language="EN">Message Details</Label>
+                    <Label language="DE">Message Details</Label>
+                </GuiLabels>
+                <AttributeReference>
+                    <ReferenceName>greetingsMessage</ReferenceName>
+                    <description>Configure Greetings Message</description>
+                </AttributeReference>
+            </AttributeGroup>
+        </Tab>
+    </Variant>
+    <AttributeMetadata>
+        <Name>firstUriPart</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="876e40b9-c0a3-4d85-8b23-f1b509982b18">
+            <Label language="EN">First URI Part</Label>
+            <Label language="DE">First URI Part</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>greetingsMessage</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="239dd7c8-61ce-4ced-8037-437d688257f1">
+            <Label language="EN">Greetings Message</Label>
+            <Label language="DE">Greetings Message</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>backoffMultiplier</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:integer</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="83a4d6e8-1ec5-4693-a43a-30defc45dade">
+            <Label language="EN">Backoff Multiplier</Label>
+            <Label language="DE">Backoff Multiplier</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>sendEmptyMessageWhenIdle</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:boolean</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="eb3db3ca-fcfa-4a7a-95c3-a63b0b46b16e">
+            <Label language="EN">Send Empty Message When Idle</Label>
+            <Label language="DE">Send Empty Message When Idle</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>initialDelay</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:long</DataType>
+        <Default>1000</Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="a00ea23c-4fdc-4976-b4ea-8e12688bc556">
+            <Label language="EN">Initial Delay</Label>
+            <Label language="DE">Initial Delay</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>backoffIdleThreshold</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:integer</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="690620ff-b304-40f2-a68f-f8017092dccf">
+            <Label language="EN">Backoff Idle Threshold</Label>
+            <Label language="DE">Backoff Idle Threshold</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>useFixedDelay</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:boolean</DataType>
+        <Default>true</Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="e9988885-6de5-43ee-88bd-032876a851a3">
+            <Label language="EN">Use Fixed Delay</Label>
+            <Label language="DE">Use Fixed Delay</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>delay</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:long</DataType>
+        <Default>500</Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="a4f8a61b-7035-48e5-9ca8-6d2351620510">
+            <Label language="EN">Delay</Label>
+            <Label language="DE">Delay</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>startScheduler</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:boolean</DataType>
+        <Default>true</Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="ccfe4f40-8bfc-4037-a83a-5ee7ba27729e">
+            <Label language="EN">Start Scheduler</Label>
+            <Label language="DE">Start Scheduler</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>runLoggingLevel</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default>TRACE</Default>
+        <Length></Length>
+        <isparameterized>false</isparameterized>
+        <GuiLabels guid="421138a8-41c6-414b-b3e9-c0c06fbea859">
+            <Label language="EN">Run Logging Level</Label>
+            <Label language="DE">Run Logging Level</Label>
+        </GuiLabels>
+        <FixedValues>
+            <FixedValue>
+                <Value>TRACE</Value>
+                <GuiLabels guid="352deeac-432f-45d1-927e-781c5c0289f8">
+                    <Label language="EN">TRACE</Label>
+                    <Label language="DE">TRACE</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>ERROR</Value>
+                <GuiLabels guid="39ad97f5-1d83-4ff5-a8cf-bdf80ef09bbc">
+                    <Label language="EN">ERROR</Label>
+                    <Label language="DE">ERROR</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>INFO</Value>
+                <GuiLabels guid="e6c0a878-aeaf-4efa-a759-5e58e2265508">
+                    <Label language="EN">INFO</Label>
+                    <Label language="DE">INFO</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>DEBUG</Value>
+                <GuiLabels guid="1c7c4cad-cd9c-4188-9838-5bf8bfa9dbbe">
+                    <Label language="EN">DEBUG</Label>
+                    <Label language="DE">DEBUG</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>OFF</Value>
+                <GuiLabels guid="d93f47c7-89a3-43d5-8fbd-234886117f02">
+                    <Label language="EN">OFF</Label>
+                    <Label language="DE">OFF</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>WARN</Value>
+                <GuiLabels guid="aced2629-1430-404c-aeda-e53cb10c7af4">
+                    <Label language="EN">WARN</Label>
+                    <Label language="DE">WARN</Label>
+                </GuiLabels>
+            </FixedValue>
+        </FixedValues>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>backoffErrorThreshold</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:integer</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="fafb52c3-28c6-41c7-8e08-e21d885ba870">
+            <Label language="EN">Backoff Error Threshold</Label>
+            <Label language="DE">Backoff Error Threshold</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>greedy</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:boolean</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="ebe1a5b6-e0dc-4092-acba-ed54e6dc909d">
+            <Label language="EN">Greedy</Label>
+            <Label language="DE">Greedy</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>timeUnit</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default>MILLISECONDS</Default>
+        <Length></Length>
+        <isparameterized>false</isparameterized>
+        <GuiLabels guid="56d0b719-f641-41f8-9ed8-f44fd30e1edc">
+            <Label language="EN">Time Unit</Label>
+            <Label language="DE">Time Unit</Label>
+        </GuiLabels>
+        <FixedValues>
+            <FixedValue>
+                <Value>MILLISECONDS</Value>
+                <GuiLabels guid="b8796b47-0a17-4c9f-8142-e07b5355c18d">
+                    <Label language="EN">MILLISECONDS</Label>
+                    <Label language="DE">MILLISECONDS</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>MICROSECONDS</Value>
+                <GuiLabels guid="c527d83b-acb1-4f99-ae3f-04d8619b31c6">
+                    <Label language="EN">MICROSECONDS</Label>
+                    <Label language="DE">MICROSECONDS</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>SECONDS</Value>
+                <GuiLabels guid="849be036-c140-4333-8260-1daf04b7a838">
+                    <Label language="EN">SECONDS</Label>
+                    <Label language="DE">SECONDS</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>DAYS</Value>
+                <GuiLabels guid="4ad6e227-ffa7-494e-9edd-9940dfa2f54b">
+                    <Label language="EN">DAYS</Label>
+                    <Label language="DE">DAYS</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>NANOSECONDS</Value>
+                <GuiLabels guid="36781d55-2554-4818-b87c-c9fe0cb540f1">
+                    <Label language="EN">NANOSECONDS</Label>
+                    <Label language="DE">NANOSECONDS</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>HOURS</Value>
+                <GuiLabels guid="6cedc173-9ef7-4018-86be-e900fa168d87">
+                    <Label language="EN">HOURS</Label>
+                    <Label language="DE">HOURS</Label>
+                </GuiLabels>
+            </FixedValue>
+            <FixedValue>
+                <Value>MINUTES</Value>
+                <GuiLabels guid="47829f7e-3ae7-4212-b085-97b2bf9dee51">
+                    <Label language="EN">MINUTES</Label>
+                    <Label language="DE">MINUTES</Label>
+                </GuiLabels>
+            </FixedValue>
+        </FixedValues>
+    </AttributeMetadata>
+</ComponentMetadata>
