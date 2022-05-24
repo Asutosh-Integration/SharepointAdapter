@@ -111,17 +111,6 @@
                 <Label language="EN">Connection</Label>
                 <Label language="DE">Connection</Label>
             </GuiLabels>
-            <AttributeGroup id="defaultUriParameter">
-                <Name xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">URI Setting</Name>
-                <GuiLabels guid="55e2764d-9161-43a1-ad8d-28f198d3fdf1">
-                    <Label language="EN">URI Setting</Label>
-                    <Label language="DE">URI Setting</Label>
-                </GuiLabels>
-                <AttributeReference>
-                    <ReferenceName>firstUriPart</ReferenceName>
-                    <description>Configure First URI Part</description>
-                </AttributeReference>
-            </AttributeGroup>
             <AttributeGroup id="MessageDetails">
                 <Name xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Test19 Endpoint</Name>
                 <GuiLabels guid="d5f0f7b0-5463-4eae-af69-e7d13dabbc18">
@@ -129,8 +118,8 @@
                     <Label language="DE">Message Details</Label>
                 </GuiLabels>
                 <AttributeReference>
-                    <ReferenceName>greetingsMessage</ReferenceName>
-                    <description>Configure Greetings Message</description>
+                    <ReferenceName>URL</ReferenceName>
+                    <description>Sharepoint URL</description>
                 </AttributeReference>
             </AttributeGroup>
         </Tab>
@@ -157,6 +146,18 @@
         <GuiLabels guid="239dd7c8-61ce-4ced-8037-437d688257f1">
             <Label language="EN">Greetings Message</Label>
             <Label language="DE">Greetings Message</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>URL</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="239dd7c8-61ce-4ced-8037-437d688257f1">
+            <Label language="EN">Sharepoint URL</Label>
+            <Label language="DE">Sharepoint URL</Label>
         </GuiLabels>
     </AttributeMetadata>
     <AttributeMetadata>

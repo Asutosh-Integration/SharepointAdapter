@@ -40,6 +40,7 @@ public class SharepointComponentEndpoint extends DefaultPollingEndpoint {
 
     @UriParam
     private String greetingsMessage;
+    private  String URL;
     
     @UriParam
     private boolean useFormater;
@@ -55,10 +56,16 @@ public class SharepointComponentEndpoint extends DefaultPollingEndpoint {
 	public String getGreetingsMessage() {
 		return greetingsMessage;
 	}
+    public String getURL() {
+        return URL;
+    }
 
 	public void setGreetingsMessage(String greetingsMessage) {
 		this.greetingsMessage = greetingsMessage;
 	}
+    public void setURL(String URL) {
+        this.URL = URL;
+    }
 
 	public SharepointComponentEndpoint() {
     }
