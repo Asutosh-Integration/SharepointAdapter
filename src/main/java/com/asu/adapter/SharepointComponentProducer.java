@@ -100,7 +100,7 @@ public class SharepointComponentProducer extends DefaultProducer {
         } else {
             System.out.println("GET request not worked");
             BufferedReader in = new BufferedReader(new InputStreamReader(
-                    con.getInputStream()));
+                    con.getErrorStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
 
