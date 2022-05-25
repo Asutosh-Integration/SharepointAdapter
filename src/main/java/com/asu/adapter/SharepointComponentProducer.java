@@ -16,16 +16,20 @@
  */
 package com.asu.adapter;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.Exchange;
 import org.apache.camel.impl.DefaultProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 /**
  * The www.Sample.com producer.
  */
@@ -58,17 +62,32 @@ public class SharepointComponentProducer extends DefaultProducer {
         String Auth = (String) exchange.getIn().getHeader("Auth");
         String Auth1 = Auth;
         String URL = endpoint.getURL();
+        String TenantID = endpoint.getTenantID();
+        String Resource = endpoint.getResource();
+        String Credential = endpoint.getCredential();
+        String FilePath = endpoint.getFilePath();
         String GET_URL;
         GET_URL = URL;
         GET_URL = GET_URL + "_api/web/GetFolderByServerRelativePath(DecodedUrl=%27%2Fsites%2FAsutoshIntegration%2FShared%20Documents%2FGeneral%27)/Files/AddUsingPath(DecodedUrl=%27test2.txt%27,AutoCheckoutOnInvalidData=true)";
-        String result = sendPOST(GET_URL, input, header, Auth);
+
+        //Oauth Call
+        String OauthUrl = "https://accounts.accesscontrol.windows.net/" + TenantID + "/tokens/OAuth/2";
+        String OauthBody = "grant_type=client_credentials&client_id=6771d88f-6141-401c-8ec4-a7e278d9e15e@36da45f1-dd2c-4d1f-af13-5abe46b99921&client_secret=75FZTXLGbXzhIPzQGsRG/dOeILEPmtzDnSCc4mxdLoU=&resource=00000003-0000-0ff1-ce00-000000000000/amedeloitte.sharepoint.com@36da45f1-dd2c-4d1f-af13-5abe46b99921";
+        String OauthContentType = "application/x-www-form-urlencoded";
+        String OauthAuthorisation = null;
+        String OauthResult = sendPOST(OauthUrl, OauthBody, OauthContentType, OauthAuthorisation);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = "{ \"color\" : \"Black\", \"type\" : \"FIAT\" }";
+        JsonNode jsonNode = mapper.readTree(json);
+        String color = jsonNode.get("color").asText();
+
 		if(URL == null || URL.isEmpty()) {
 			URL = "(Producer) Hello!";
 		}
 		String messageInUpperCase = URL.toUpperCase();
 		if (input != null) {
 		    LOG.debug(input);
-			messageInUpperCase = input + " (Producer) : " + messageInUpperCase + result + "Auth" + Auth1;
+			messageInUpperCase = input + " (Producer) : " + messageInUpperCase  + TenantID + Credential + Resource + FilePath + OauthResult + color;
 		}
 		exchange.getIn().setBody(messageInUpperCase);
         System.out.println(messageInUpperCase);
@@ -124,7 +143,9 @@ public class SharepointComponentProducer extends DefaultProducer {
         con.setRequestMethod("POST");
         con.setRequestProperty("User-Agent", USER_AGENT);
         con.setRequestProperty("Content-type", CT);
-        con.setRequestProperty("Authorization", Auth);
+        if (Auth != null) {
+            con.setRequestProperty("Authorization", Auth);
+        }
         String jsonInputString = POST_BODY;
         // For POST only - START
         con.setDoOutput(true);

@@ -111,15 +111,31 @@
                 <Label language="EN">Connection</Label>
                 <Label language="DE">Connection</Label>
             </GuiLabels>
-            <AttributeGroup id="MessageDetails">
+            <AttributeGroup id="ConnectionDetails">
                 <Name xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Test19 Endpoint</Name>
                 <GuiLabels guid="d5f0f7b0-5463-4eae-af69-e7d13dabbc18">
-                    <Label language="EN">Message Details</Label>
-                    <Label language="DE">Message Details</Label>
+                    <Label language="EN">Connection Details</Label>
+                    <Label language="DE">Connection Details</Label>
                 </GuiLabels>
                 <AttributeReference>
                     <ReferenceName>URL</ReferenceName>
                     <description>Sharepoint URL</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>TenantID</ReferenceName>
+                    <description>Sharepoint Tenant</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>Resource</ReferenceName>
+                    <description>Sharepoint Resource</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>FilePath</ReferenceName>
+                    <description>Sharepoint File Path</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>Credential</ReferenceName>
+                    <description>Sharepoint Credential</description>
                 </AttributeReference>
             </AttributeGroup>
         </Tab>
@@ -158,6 +174,54 @@
         <GuiLabels guid="239dd7c8-61ce-4ced-8037-437d688257f1">
             <Label language="EN">Sharepoint URL</Label>
             <Label language="DE">Sharepoint URL</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>TenantID</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="c0893f16-dbff-11ec-9d64-0242ac120002">
+            <Label language="EN">Sharepoint Tenant</Label>
+            <Label language="DE">Sharepoint Tenant</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>Resource</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="f879f910-dbff-11ec-9d64-0242ac120002">
+            <Label language="EN">Sharepoint Resource</Label>
+            <Label language="DE">Sharepoint Resource</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>FilePath</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="8d9193be-dc00-11ec-9d64-0242ac120002">
+            <Label language="EN">Sharepoint File Path</Label>
+            <Label language="DE">Sharepoint File Path</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>Credential</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="ae7465ba-dc01-11ec-9d64-0242ac120002">
+            <Label language="EN">Sharepoint Credential</Label>
+            <Label language="DE">Sharepoint Credential</Label>
         </GuiLabels>
     </AttributeMetadata>
     <AttributeMetadata>

@@ -26,6 +26,30 @@
       <version>${camel.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.sap.it.public</groupId>
+      <artifactId>api</artifactId>
+      <version>2.25.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/src/main/resources/com.sap.it.public.generic.api-2.25.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.11.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient-osgi</artifactId>
+      <version>4.5.13</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore-osgi</artifactId>
+      <version>4.4.1</version>
+    </dependency>
+
+
     <!-- testing -->
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -64,7 +88,11 @@
         <extensions>true</extensions>
 
         <configuration>
-          <excludeDependencies>true</excludeDependencies>
+          <instructions>
+          <Export-Package>com.fasterxml.jackson.*,org.apache.http*,org.ietf.jgss,net.spy.memcached,net.sf.ehcache</Export-Package>
+          <Embed-Dependency>com.fasterxml.jackson.*,org.apache.http*,org.ietf.jgss,net.spy.memcached,net.sf.ehcache;scope=compile|runtime</Embed-Dependency>
+          <Embed-Directory>target/dependency</Embed-Directory>
+          </instructions>
         </configuration>
       </plugin>
       <plugin>
@@ -98,7 +126,7 @@
               <excludeArtifactIds></excludeArtifactIds>
               
               <!-- Specify the group ids to be excluded in the dependencies -->
-              <excludeGroupIds>com.sap.cloud.adk,org.apache.camel,org.slf4j,log4j</excludeGroupIds>
+              <excludeGroupIds>com.sap.cloud.adk,org.apache.camel,org.slf4j,log4j,com.sap.it.public</excludeGroupIds>
             </configuration>
           </execution>
         </executions>

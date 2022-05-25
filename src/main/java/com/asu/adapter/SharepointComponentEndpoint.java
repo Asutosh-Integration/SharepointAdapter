@@ -41,6 +41,10 @@ public class SharepointComponentEndpoint extends DefaultPollingEndpoint {
     @UriParam
     private String greetingsMessage;
     private  String URL;
+    private  String TenantID;
+    private  String Resource;
+    private  String FilePath;
+    private  String Credential;
     
     @UriParam
     private boolean useFormater;
@@ -59,6 +63,11 @@ public class SharepointComponentEndpoint extends DefaultPollingEndpoint {
     public String getURL() {
         return URL;
     }
+    public String getTenantID() { return TenantID; }
+    public  String getResource() { return Resource; }
+    public String getFilePath() { return FilePath; }
+    public String getCredential() { return Credential; }
+
 
 	public void setGreetingsMessage(String greetingsMessage) {
 		this.greetingsMessage = greetingsMessage;
@@ -66,6 +75,10 @@ public class SharepointComponentEndpoint extends DefaultPollingEndpoint {
     public void setURL(String URL) {
         this.URL = URL;
     }
+    public void setTenantID(String TenantID) { this.TenantID = TenantID; }
+    public void setResource(String Resource) { this.Resource = Resource; }
+    public void setFilePath(String FilePath) { this.FilePath = FilePath; }
+    public void setCredential(String Credential) { this.Credential = Credential; }
 
 	public SharepointComponentEndpoint() {
     }
