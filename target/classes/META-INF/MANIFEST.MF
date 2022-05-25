@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1653484029938
+Bnd-LastModified: 1653494587206
 Build-Jdk: 1.8.0_321
 Built-By: asmaharana
 Bundle-ManifestVersion: 2
@@ -293,16 +293,19 @@ Export-Package: com.fasterxml.jackson.annotation;version="2.11.3",com.fa
  nt",org.apache.http.protocol;version="4.4.1";uses:="org.apache.http,org
  .apache.http.params",org.apache.http.ssl;version="4.4.1";uses:="javax.n
  et.ssl",org.apache.http.util;version="4.4.1";uses:="org.apache.http",ne
- t.sf.ehcache;version="1.0.0.SNAPSHOT",net.spy.memcached;version="1.0.0.
- SNAPSHOT",org.ietf.jgss;version="1.0.0.SNAPSHOT"
-Import-Package: com.fasterxml.jackson.databind;version="[2.11,3)",javax.
- crypto,javax.crypto.spec,javax.naming,javax.naming.directory,javax.nami
- ng.ldap,javax.net,javax.net.ssl,javax.security.auth.x500,javax.xml,java
- x.xml.datatype,javax.xml.namespace,javax.xml.parsers,net.sf.ehcache,net
- .spy.memcached,org.apache.camel;version="[2.24,3)",org.apache.camel.imp
- l;version="[2.24,3)",org.apache.camel.spi;version="[2.24,3)",org.apache
- .commons.codec.binary;version="[1.11,2)",org.apache.commons.logging;ver
- sion="[1.2,2)",org.ietf.jgss,org.osgi.framework,org.osgi.service.cm,org
- .slf4j;version="[1.6,2)",org.w3c.dom,org.w3c.dom.bootstrap,org.w3c.dom.
- ls,org.xml.sax
+ t.spy.memcached;version="1.0.0.SNAPSHOT",org.ietf.jgss;version="1.0.0.S
+ NAPSHOT",net.sf.ehcache;version="1.0.0.SNAPSHOT"
+Import-Package: com.fasterxml.jackson.databind;version="[2.11,3)",com.sa
+ p.it.api,com.sap.it.api.securestore,javax.crypto,javax.crypto.spec,java
+ x.naming,javax.naming.directory,javax.naming.ldap,javax.net,javax.net.s
+ sl,javax.security.auth.x500,javax.xml,javax.xml.datatype,javax.xml.name
+ space,javax.xml.parsers,net.sf.ehcache,net.spy.memcached,org.apache.cam
+ el;version="[2.24,3)",org.apache.camel.impl;version="[2.24,3)",org.apac
+ he.camel.spi;version="[2.24,3)",org.apache.commons.codec.binary;version
+ ="[1.11,2)",org.apache.commons.logging;version="[1.2,2)",org.apache.htt
+ p;version="[4.4,5)",org.apache.http.client.methods;version="[4.5,5)",or
+ g.apache.http.entity;version="[4.4,5)",org.apache.http.impl.client;vers
+ ion="[4.5,5)",org.apache.http.util;version="[4.4,5)",org.ietf.jgss,org.
+ osgi.framework,org.osgi.service.cm,org.slf4j;version="[1.6,2)",org.w3c.
+ dom,org.w3c.dom.bootstrap,org.w3c.dom.ls,org.xml.sax
 Tool: Bnd-2.1.0.20130426-122213
