@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1653494587206
+Bnd-LastModified: 1653586846483
 Build-Jdk: 1.8.0_321
 Built-By: asmaharana
 Bundle-ManifestVersion: 2
@@ -302,10 +302,11 @@ Import-Package: com.fasterxml.jackson.databind;version="[2.11,3)",com.sa
  space,javax.xml.parsers,net.sf.ehcache,net.spy.memcached,org.apache.cam
  el;version="[2.24,3)",org.apache.camel.impl;version="[2.24,3)",org.apac
  he.camel.spi;version="[2.24,3)",org.apache.commons.codec.binary;version
- ="[1.11,2)",org.apache.commons.logging;version="[1.2,2)",org.apache.htt
- p;version="[4.4,5)",org.apache.http.client.methods;version="[4.5,5)",or
- g.apache.http.entity;version="[4.4,5)",org.apache.http.impl.client;vers
- ion="[4.5,5)",org.apache.http.util;version="[4.4,5)",org.ietf.jgss,org.
- osgi.framework,org.osgi.service.cm,org.slf4j;version="[1.6,2)",org.w3c.
- dom,org.w3c.dom.bootstrap,org.w3c.dom.ls,org.xml.sax
+ ="[1.11,2)",org.apache.commons.io;version="[1.4,2)",org.apache.commons.
+ logging;version="[1.2,2)",org.apache.http;version="[4.4,5)",org.apache.
+ http.client.methods;version="[4.5,5)",org.apache.http.entity;version="[
+ 4.4,5)",org.apache.http.impl.client;version="[4.5,5)",org.apache.http.u
+ til;version="[4.4,5)",org.ietf.jgss,org.osgi.framework,org.osgi.service
+ .cm,org.slf4j;version="[1.6,2)",org.w3c.dom,org.w3c.dom.bootstrap,org.w
+ 3c.dom.ls,org.xml.sax
 Tool: Bnd-2.1.0.20130426-122213

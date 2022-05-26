@@ -50,6 +50,7 @@
     </dependency>
 
 
+
     <!-- testing -->
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -126,7 +127,7 @@
               <excludeArtifactIds></excludeArtifactIds>
               
               <!-- Specify the group ids to be excluded in the dependencies -->
-              <excludeGroupIds>com.sap.cloud.adk,org.apache.camel,org.slf4j,log4j,com.sap.it.public</excludeGroupIds>
+              <excludeGroupIds>com.sap.cloud.adk,org.apache.camel,org.slf4j,log4j,com.sap.it.public,com.fasterxml.jackson.core,org.apache.httpcomponents</excludeGroupIds>
             </configuration>
           </execution>
         </executions>
