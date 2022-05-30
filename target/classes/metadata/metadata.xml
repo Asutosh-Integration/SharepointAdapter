@@ -118,8 +118,8 @@
                     <Label language="DE">Connection Details</Label>
                 </GuiLabels>
                 <AttributeReference>
-                    <ReferenceName>URL</ReferenceName>
-                    <description>Sharepoint URL</description>
+                    <ReferenceName>Domain</ReferenceName>
+                    <description>Sharepoint Domain</description>
                 </AttributeReference>
                 <AttributeReference>
                     <ReferenceName>TenantID</ReferenceName>
@@ -130,12 +130,20 @@
                     <description>Sharepoint Resource</description>
                 </AttributeReference>
                 <AttributeReference>
-                    <ReferenceName>FilePath</ReferenceName>
-                    <description>Sharepoint File Path</description>
-                </AttributeReference>
-                <AttributeReference>
                     <ReferenceName>Credential</ReferenceName>
                     <description>Sharepoint Credential</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>Site</ReferenceName>
+                    <description>Sharepoint Site Name</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>FolderPath</ReferenceName>
+                    <description>Sharepoint Folder Path</description>
+                </AttributeReference>
+                <AttributeReference>
+                    <ReferenceName>FileName</ReferenceName>
+                    <description>Sharepoint File Name</description>
                 </AttributeReference>
             </AttributeGroup>
         </Tab>
@@ -165,15 +173,15 @@
         </GuiLabels>
     </AttributeMetadata>
     <AttributeMetadata>
-        <Name>URL</Name>
+        <Name>Domain</Name>
         <Usage>false</Usage>
         <DataType>xsd:string</DataType>
         <Default></Default>
         <Length></Length>
         <isparameterized>true</isparameterized>
         <GuiLabels guid="239dd7c8-61ce-4ced-8037-437d688257f1">
-            <Label language="EN">Sharepoint URL</Label>
-            <Label language="DE">Sharepoint URL</Label>
+            <Label language="EN">Sharepoint Domain</Label>
+            <Label language="DE">Sharepoint Domain</Label>
         </GuiLabels>
     </AttributeMetadata>
     <AttributeMetadata>
@@ -201,15 +209,15 @@
         </GuiLabels>
     </AttributeMetadata>
     <AttributeMetadata>
-        <Name>FilePath</Name>
+        <Name>FolderPath</Name>
         <Usage>false</Usage>
         <DataType>xsd:string</DataType>
         <Default></Default>
         <Length></Length>
         <isparameterized>true</isparameterized>
         <GuiLabels guid="8d9193be-dc00-11ec-9d64-0242ac120002">
-            <Label language="EN">Sharepoint File Path</Label>
-            <Label language="DE">Sharepoint File Path</Label>
+            <Label language="EN">Sharepoint Folder Path</Label>
+            <Label language="DE">Sharepoint Folder Path</Label>
         </GuiLabels>
     </AttributeMetadata>
     <AttributeMetadata>
@@ -222,6 +230,30 @@
         <GuiLabels guid="ae7465ba-dc01-11ec-9d64-0242ac120002">
             <Label language="EN">Sharepoint Credential</Label>
             <Label language="DE">Sharepoint Credential</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>Site</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="743eea42-dfed-11ec-9d64-0242ac120002">
+            <Label language="EN">Sharepoint Site Name</Label>
+            <Label language="DE">Sharepoint Site Name</Label>
+        </GuiLabels>
+    </AttributeMetadata>
+    <AttributeMetadata>
+        <Name>FileName</Name>
+        <Usage>false</Usage>
+        <DataType>xsd:string</DataType>
+        <Default></Default>
+        <Length></Length>
+        <isparameterized>true</isparameterized>
+        <GuiLabels guid="743eea42-dfed-11ec-9d64-0242ac120002">
+            <Label language="EN">Sharepoint File Name</Label>
+            <Label language="DE">Sharepoint File Name</Label>
         </GuiLabels>
     </AttributeMetadata>
     <AttributeMetadata>

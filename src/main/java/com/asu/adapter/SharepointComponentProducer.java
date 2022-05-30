@@ -31,6 +31,9 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.*;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+
 import com.sap.it.api.securestore.SecureStoreService;
 import com.sap.it.api.securestore.UserCredential;
 import com.sap.it.api.ITApiFactory;
@@ -56,41 +59,36 @@ public class SharepointComponentProducer extends DefaultProducer {
     public void process(final Exchange exchange) throws Exception {
         
         Object input = exchange.getIn().getBody();
-        String type = "";
         if (input instanceof WrappedFile) {
             // unwrap file
-            type = "WrappedFile";
             input = ((WrappedFile) input).getFile();
         }
 
         InputStream is;
         if (input instanceof InputStream) {
             is = (InputStream) input;
-            type = "InputStream";
         } else if (input instanceof File) {
             is = new FileInputStream((File)input);
-            type = "File";
         } else if (input instanceof byte[]) {
             is = new ByteArrayInputStream((byte[]) input);
-            type = "Byte";
         } else {
             // try as input stream
             is = exchange.getContext().getTypeConverter().tryConvertTo(InputStream.class, exchange, input);
-            type = "Try";
         }
-        String URL = endpoint.getURL();
+        String Domain = endpoint.getDomain();
         String TenantID = endpoint.getTenantID();
         String Resource = endpoint.getResource();
         String Credential = endpoint.getCredential();
-        String FilePath = endpoint.getFilePath();
+        String FolderPath = encodeValue(endpoint.getFolderPath());
+        String FileName = encodeValue(endpoint.getFileName());
+        String Site = endpoint.getSite();
         String GET_URL;
-        GET_URL = URL + "_api/web/GetFolderByServerRelativePath(DecodedUrl=@a1)/Files/AddUsingPath(DecodedUrl=@a2,AutoCheckoutOnInvalidData=@a3)?@a1=%27%2Fsites%2FAsutoshIntegration%2FShared%20Documents%2FGeneral%27&@a2=%27" + FilePath + "%27&@a3=true&$Select=ServerRelativeUrl,UniqueId,Name,VroomItemID,VroomDriveID,ServerRedirectedUrl&$Expand=ListItemAllFields";
+        GET_URL = "https://" + Domain + "/sites/" + Site + "/_api/web/GetFolderByServerRelativePath(DecodedUrl=@a1)/Files/AddUsingPath(DecodedUrl=@a2,AutoCheckoutOnInvalidData=@a3)?@a1=%27%2Fsites%2F" + Site + "%2FShared%20Documents%2F" + FolderPath + "%27&@a2=%27" + FileName + "%27&@a3=true&$Select=ServerRelativeUrl,UniqueId,Name,VroomItemID,VroomDriveID,ServerRedirectedUrl&$Expand=ListItemAllFields";
         SecureStoreService secureStoreService = ITApiFactory.getService(SecureStoreService.class, null);
         UserCredential userCredential = secureStoreService.getUserCredential(Credential);
         char[] ch = userCredential.getPassword();
         String ClientSecret = new String(ch);
         String ClientID = userCredential.getUsername();
-        String Domain = "amedeloitte.sharepoint.com";
         //Oauth Call
         String OauthUrl = "https://accounts.accesscontrol.windows.net/" + TenantID + "/tokens/OAuth/2";
         String result = getOauthTokenUsingClientCredential(OauthUrl,ClientID,TenantID,ClientSecret,Resource,Domain);
@@ -100,13 +98,13 @@ public class SharepointComponentProducer extends DefaultProducer {
         //Final Call
         String finalResult = sendFiletoSharepoint(GET_URL,Token,is);
 
-		if(URL == null || URL.isEmpty()) {
-			URL = "(Producer) Hello!";
+		if(Domain == null || Domain.isEmpty()) {
+			Domain = "(Producer) Hello!";
 		}
-		String messageInUpperCase = URL.toUpperCase();
+		String messageInUpperCase = Domain.toUpperCase();
 		if (input != null) {
 
-			messageInUpperCase = type + finalResult;
+			messageInUpperCase = finalResult;
 		}
 		exchange.getIn().setBody(messageInUpperCase);
         System.out.println(messageInUpperCase);
@@ -120,7 +118,7 @@ public class SharepointComponentProducer extends DefaultProducer {
         post.setEntity(b);
         post.addHeader("Content-Type", "application/x-www-form-urlencoded");
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
-             CloseableHttpResponse response = httpClient.execute(post)){
+             CloseableHttpResponse response = httpClient.execute(post)) {
             result = EntityUtils.toString(response.getEntity());
         }
         return result;
@@ -140,5 +138,8 @@ public class SharepointComponentProducer extends DefaultProducer {
         return result;
     }
 
+    private String encodeValue(String value) throws UnsupportedEncodingException {
+        return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
+    }
 
 }

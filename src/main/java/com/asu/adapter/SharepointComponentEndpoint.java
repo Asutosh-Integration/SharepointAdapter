@@ -18,6 +18,7 @@ package com.asu.adapter;
  * limitations under the License.
  */
 
+import java.io.File;
 import java.net.URISyntaxException;
 
 import org.apache.camel.Consumer;
@@ -40,11 +41,13 @@ public class SharepointComponentEndpoint extends DefaultPollingEndpoint {
 
     @UriParam
     private String greetingsMessage;
-    private  String URL;
+    private  String Domain;
     private  String TenantID;
     private  String Resource;
-    private  String FilePath;
+    private  String FolderPath;
     private  String Credential;
+    private String Site;
+    private String FileName;
     
     @UriParam
     private boolean useFormater;
@@ -60,26 +63,29 @@ public class SharepointComponentEndpoint extends DefaultPollingEndpoint {
 	public String getGreetingsMessage() {
 		return greetingsMessage;
 	}
-    public String getURL() {
-        return URL;
+    public String getDomain() {
+        return Domain;
     }
     public String getTenantID() { return TenantID; }
     public  String getResource() { return Resource; }
-    public String getFilePath() { return FilePath; }
+    public String getFolderPath() { return FolderPath; }
     public String getCredential() { return Credential; }
+    public String getSite() { return Site; }
+    public String getFileName() { return FileName; }
 
 
 	public void setGreetingsMessage(String greetingsMessage) {
 		this.greetingsMessage = greetingsMessage;
 	}
-    public void setURL(String URL) {
-        this.URL = URL;
+    public void setDomain(String Domain) {
+        this.Domain = Domain;
     }
     public void setTenantID(String TenantID) { this.TenantID = TenantID; }
     public void setResource(String Resource) { this.Resource = Resource; }
-    public void setFilePath(String FilePath) { this.FilePath = FilePath; }
+    public void setFolderPath(String FolderPath) { this.FolderPath = FolderPath; }
     public void setCredential(String Credential) { this.Credential = Credential; }
-
+    public void setSite(String Site) { this.Site = Site; }
+    public void setFileName(String FileName) { this.FileName = FileName; }
 	public SharepointComponentEndpoint() {
     }
 
