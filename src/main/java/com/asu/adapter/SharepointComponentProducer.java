@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.Exchange;
 import org.apache.camel.WrappedFile;
 import org.apache.camel.impl.DefaultProducer;
+import org.apache.camel.language.simple.SimpleLanguage;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -75,13 +76,13 @@ public class SharepointComponentProducer extends DefaultProducer {
             // try as input stream
             is = exchange.getContext().getTypeConverter().tryConvertTo(InputStream.class, exchange, input);
         }
-        String Domain = endpoint.getDomain();
-        String TenantID = endpoint.getTenantID();
-        String Resource = endpoint.getResource();
-        String Credential = endpoint.getCredential();
-        String FolderPath = encodeValue(endpoint.getFolderPath());
-        String FileName = encodeValue(endpoint.getFileName());
-        String Site = endpoint.getSite();
+        String Domain = getValue(endpoint.getDomain(),exchange);
+        String TenantID = getValue(endpoint.getTenantID(),exchange);
+        String Resource = getValue(endpoint.getResource(),exchange);
+        String Credential = getValue(endpoint.getCredential(),exchange);
+        String FolderPath = encodeValue(getValue(endpoint.getFolderPath(),exchange));
+        String FileName = encodeValue(getValue(endpoint.getFileName(),exchange));
+        String Site = getValue(endpoint.getSite(),exchange);
         String GET_URL;
         GET_URL = "https://" + Domain + "/sites/" + Site + "/_api/web/GetFolderByServerRelativePath(DecodedUrl=@a1)/Files/AddUsingPath(DecodedUrl=@a2,AutoCheckoutOnInvalidData=@a3)?@a1=%27%2Fsites%2F" + Site + "%2FShared%20Documents%2F" + FolderPath + "%27&@a2=%27" + FileName + "%27&@a3=true&$Select=ServerRelativeUrl,UniqueId,Name,VroomItemID,VroomDriveID,ServerRedirectedUrl&$Expand=ListItemAllFields";
         SecureStoreService secureStoreService = ITApiFactory.getService(SecureStoreService.class, null);
@@ -108,6 +109,9 @@ public class SharepointComponentProducer extends DefaultProducer {
 		}
 		exchange.getIn().setBody(messageInUpperCase);
         System.out.println(messageInUpperCase);
+
+
+
     }
 
     private static String getOauthTokenUsingClientCredential(String url, String clientID, String tenantID, String clientSecret, String resource, String domain) throws IOException {
@@ -142,4 +146,18 @@ public class SharepointComponentProducer extends DefaultProducer {
         return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
     }
 
+    public String getValue(String paramName, Exchange exchange) throws IllegalArgumentException {
+        String answer = null;
+        if ((paramName.startsWith("$simple{") || paramName.startsWith("${")) && paramName.endsWith("}")) {
+            paramName = paramName.replace('#', ':');
+
+            answer = (String) SimpleLanguage.expression(paramName).evaluate(exchange, Object.class);
+        }else {
+            answer = paramName;
+        }
+        return answer;
+    }
 }
+
+
+
